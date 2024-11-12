@@ -15,6 +15,7 @@ import {
   TextField,
 } from '@mui/material';
 import CalculateIcon from '@mui/icons-material/Calculate';
+import DevelopersSection from './components/DevelopersSection';
 
 function App() {
   const initialData = [
@@ -36,7 +37,7 @@ function App() {
   const handleInputChange = (rowIndex, field) => (event) => {
     const value = event.target.value;
     const newValue = value === '' ? 0 : Math.max(0, parseInt(value, 10));
-    
+
     setData(prevData => {
       const newData = [...prevData];
       newData[rowIndex] = {
@@ -45,7 +46,7 @@ function App() {
       };
       return newData;
     });
-    
+
     // Limpiar resultados cuando se modifican los datos
     setStageResults({
       stage3: [],
@@ -349,6 +350,8 @@ function App() {
             {renderOptimalSolutions(stageResults.optimalSolutions)}
           </>
         )}
+
+        <DevelopersSection />
       </Paper>
     </Container>
   );
